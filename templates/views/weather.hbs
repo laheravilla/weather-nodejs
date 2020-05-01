@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+    {{> _head title='Weather Page' }}
+    <body>
+        {{> _header title='Weather' }}
+        <main>
+            <h5>{{ message }}</h5>
+
+            <section class="container">
+                <form class="form-inline mt-5 pt-5 my-2 my-lg-0 d-flex justify-content-center">
+                    <input id="search-location" class="form-control mr-sm-2 btn-lg btn-block" type="search" name="location" placeholder="Search" aria-label="Search">
+                    <button id="btn-location" type="submit" class="btn btn-outline-success my-2 my-sm-0">Go!</button>
+                </form>  
+            </section>
+
+            <div class="forcast">
+                <p id="query"></p>
+                <p id="location"></p>
+                <p><i id="forecast"></i></p>
+            </div>
+        </main>
+        {{> _footer}}
+    </body>
+</html>

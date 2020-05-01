@@ -1,0 +1,81 @@
+body, header, footer, main {
+    max-width: 600px;
+    min-width: 300px;
+    margin: auto;
+}
+
+header {
+    height: 35vh;
+    margin: auto 0!important;
+}
+
+main {
+    min-height: 40vh;
+}
+
+header .row {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.navbar-brand img {
+    min-width: 80px;
+    max-width: 80px;
+    margin: 0 auto;
+    padding: 10%;
+}
+
+h1 {
+    font-size: 80pt;
+    text-align: left;
+    padding-top: 10%;
+}
+
+nav, ul {
+    width: 80%;
+}
+
+ul {
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 0;
+    justify-content: start;
+}
+
+nav ul li {
+    width: 25%;
+    list-style-type: none;
+}
+
+nav ul li a, footer p {
+    font-size: 15pt;
+    font-weight: 500;
+    color: rgb(145, 145, 145);
+}
+
+.navbar h1 + h5 {
+    color: lightgray;
+}
+
+.forcast {
+    margin-top: 7%;
+    border-left: solid 1px #dcdede;
+}
+
+.forcast > p {
+    padding-left: 20px;
+}
+
+#query img {
+    width: 30px;
+}
+
+footer {
+    position: sticky;
+}
+
+.error {
+    color: red;
+}
+
