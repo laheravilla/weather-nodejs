@@ -186,3 +186,34 @@ Login from console:
 ```
 $ heroku login
 ```
+
+### CREATE SSH KEY
+```
+$ ssh-keygen -t rsa -b 4096 -C "mail@mail.com"
+```
+- Verify whether key exists
+```
+$ ls -a -l ~/.ssh // Attended Output: "id_rsa", "id_rsa.pub"
+```
+- Check agent
+```
+$ eval $(ssh-agent -s) // On window. Output: "Agent pid <number>"
+```
+```
+$ eval "$(ssh-agent -s)" // On Linux/Mac
+```
+- Add identity to facilitate ssh comunication
+```
+$ ssh-add ~/.ssh/id_rsa // Output: "Identity added: /c/Users/laheravilla/.ssh/id_rsa (mail@mail.com)" -- on Window/Linux
+```
+```
+$ ssh-add -K ~/.ssh/id_rsa // Output: "Identity added: /c/Users/laheravilla/.ssh/id_rsa (mail@mail.com)" -- on Mac
+```
+- Get id_rsa.pub to comunicate with github
+```
+$ cat ~/.ssh/id_rsa.pub // Output: "ssh-rsa ... mail@mail.com" 
+```
+- Test ssh connection
+```
+$ ssh -T git@github.com
+```
