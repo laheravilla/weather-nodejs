@@ -54,12 +54,17 @@ $ npm i <dependency_name>
 $ npm i <dependency_name> -g
 ```
 ***
-### INSTALL NPM PACKAGE DEMON GLOBALLY TO RESTART APP AUTOMATICALLY AND SEE CHANGES
+### INSTALL/UNINSTALL NPM PACKAGE DEMON GLOBALLY TO RESTART APP AUTOMATICALLY AND SEE CHANGES
 ```
-$ npm i nodemon -g
+$ npm i nodemon -g | $ npm uninstall nodemon -g
 ```
 ```
 $ nodemon <file_name.js>
+```
+***
+### INSTALL/UNINSTALL NPM PACKAGE AS A DEV DEPENDENCY
+```
+$ nodemon i nodemon --save-dev
 ```
 ***
 ### WATCH CHANGES OF SPECIFIC EXTENSIONS WHEN SERVER IS RUNNING
