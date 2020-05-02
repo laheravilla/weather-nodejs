@@ -243,3 +243,7 @@ $ npm run start
 ```
 $ git push heroku master
 ```
+- Open project from console
+```
+$ heroku Open
+```
