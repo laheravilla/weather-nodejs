@@ -7,6 +7,7 @@ const utils = require('./utils/utils');
 // console.log(__filename); // E:\FORMATIONS\node-course-udemy\web-server\src\app.js
 
 const app = express(); // Call server
+const port = process.env.PORT || 3000; // Get port from enviroment value in PROD
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -92,5 +93,5 @@ app.get('*', (req, res) => res.render('404',
 ));
 
 
-// start server with port=3000
-app.listen(3000, () => console.log('server is up on port 3000.')); 
+// Locally, start server with port=3000
+app.listen(port, () => console.log('server is up on port ' + port + '.')); 

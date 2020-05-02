@@ -1,56 +1,59 @@
 ### DOWNLOAD & INSTALL NODEJS
+
 `'https://nodejs.org/en/'`
 
+***
 ### VERIFY VERSION
+
 ```
 $ node -v
 ```
-
+***
 ### RUN NODEJS
 ```
 $ node
 ```
-
+***
 ### RUN A SCRIPT
 ```
 $ node <file_name.js>
 ```
-
+***
 ### LOAD MODULE || PACKAGE
 ```
 $ const <module_artibrary_name> = require('<module_name>');
 ```
-
+***
 ### EXPORT VARIABLES & FUNCTIONS
 ```
 $ module.exports = <variable_name>;
 ```
-
+***
 ### INITIALIZE NPM IN OUR PROJECT
 ```
 $ npm init
 ```
-
+***
 ### INITIALIZE NPM WITH DEFAULT VALUES
 ```
 $ npm init -y
 ```
-
+***
 ### INSTALL NPM
 ```
 $ npm install
 ```
-
+***
 ### INSTALL A NPM PACKAGE
 ```
 $ npm i <dependency_name>
 ```
-
+***
 ### INSTALL A NPM PACKAGE GLOBALLY
 ```
 $ npm i <dependency_name> -g
 ```
-
+***
 ### INSTALL NPM PACKAGE DEMON GLOBALLY TO RESTART APP AUTOMATICALLY AND SEE CHANGES
 ```
 $ npm i nodemon -g
@@ -58,12 +61,12 @@ $ npm i nodemon -g
 ```
 $ nodemon <file_name.js>
 ```
-
+***
 ### WATCH CHANGES OF SPECIFIC EXTENSIONS WHEN SERVER IS RUNNING
 ```
 $ nodemon src/app.js -e js,hbs
 ```
-
+***
 ### GET VALUES PASSED VIA CONSOLE
 ```
 $ node <file_name.js> <input> <option1> <option2>
@@ -76,7 +79,7 @@ $node app.js article --title="article name" --createdAt="2020-04-22"
 ```
 $ proces.argv // Output: An array containing node path, file path and input passed
 ```
-
+***
 ### CREATE COMMANDS WITH YARGS PACKAGE
 ```
 yargs.command({
@@ -108,9 +111,10 @@ yargs.command({
 
 yargs.parse() // = console.log(yargs.argv);
 ```
+***
 ### USEFUL PACKAGES
 `validator - chalk - nodemon - yargs`
-
+***
 ### DEBUGGING IN NODEJS
 In code
 ```
@@ -131,7 +135,7 @@ Go to `'chrome://inspect'`
 
 Click on `Settings` and make sure both `127.0.0.1` and `localhost` with same port are set
 Click then on `inspect`
-
+***
 ### NPM REQUEST
 ```
 $ npm i request // (deprecated)
@@ -150,13 +154,13 @@ request({ url: url }, (error, response) => {
     console.log(data.current);
 });
 ```
-
+***
 ### INSTALL EXPRESS, FRAMEWORK FOR NODE.JSON
 ```
 $ npm i express
 ```
 Website: `'expressjs.com'`
-
+***
 ### IMPLEMENTATION OF EXPRESS
 ```
 const express = require('express');
@@ -168,25 +172,12 @@ app.get('', (req, res) => {
 
 app.listen(3000, () => console.log('server is up on port 3000.'));
 ```
+***
 ### IMPLEMENTATION OF HANDLEBARS.JS, A TEMPLATING LANGUAGE
 ```
 $ npm i hbs
 ```
-
-### HEROKU
-- Download from https://www.heroku.com
-- Create an account
-
-In console verify installation:
-```
-$ heroku -v
-```
-
-Login from console:
-```
-$ heroku login
-```
-
+***
 ### CREATE SSH KEY
 ```
 $ ssh-keygen -t rsa -b 4096 -C "mail@mail.com"
@@ -216,4 +207,35 @@ $ cat ~/.ssh/id_rsa.pub // Output: "ssh-rsa ... mail@mail.com"
 - Test ssh connection
 ```
 $ ssh -T git@github.com
+```
+***
+### HEROKU
+- Download from https://www.heroku.com
+- Create an account
+
+- In console verify installation:
+```
+$ heroku -v
+```
+- Login from console:
+```
+$ heroku login
+```
+- Add ssh to heroku to send/update project
+```
+$ heroku keys:add
+```
+- Create project in heroku from command
+```
+$ heroku create <unique name in heroku app> // Output: "<project url>" and "<deployment repository>" 
+```
+- Tell heroku which file to run on `package.json`
+```
+"scripts": {
+    "start": "node src/app.js"
+  }
+```
+- On dev and prod we will run now
+```
+$ npm run start
 ```

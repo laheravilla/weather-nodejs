@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let location = document.getElementById('search-location').value;
  
-        fetch('http://localhost:3000/weather?location=' + location).then(response => response.json())
+        fetch('/weather?location=' + location).then(response => response.json())
         .then(data => {
             if (data.error) {
                 query.innerHTML = data.error;
