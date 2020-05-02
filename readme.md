@@ -239,3 +239,7 @@ $ heroku create <unique name in heroku app> // Output: "<project url>" and "<dep
 ```
 $ npm run start
 ```
+- Push to HEROKU
+```
+$ git push heroku master
+```
