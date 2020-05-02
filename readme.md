@@ -252,3 +252,94 @@ $ git push heroku master
 ```
 $ heroku Open
 ```
+***
+### MONGODB
+- Install
+```
+$ npm i mongodb
+```
+- Setting
+```
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
+
+const connectionURL = 'mongodb://127.0.0.1:27017';
+const database = 'task-manager';
+
+MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
+    if (error) return console.log('Unable to connet to database!')
+    console.log('Successfully connected to database!')
+});
+```
+- See Node.js MongoDB Driver API in http://mongodb.github.io/node-mongodb-native/3.5/api/' 
+- Insert One document
+```
+db.collection('users').insertOne({object}, (error, result) => {
+    if (error) return console.log('Unable to insert user.');
+    console.log(result.ops);
+});
+```
+- Insert Many documents
+```
+db.collection('users').insertMany([{object},{object}], (error, result) => {
+    if (error) return console.log('Unable to insert user.');
+    console.log(result.ops);
+});
+```
+- Find One document by field/fields
+```
+db.collection('users').findOne({ name: 'Jane' }, (err, user) => {
+    if (err) return console.log('Unable to fetch!');
+    console.log(user);
+});    
+```
+- Find One document by ID field
+```
+db.collection('users').findOne({ _id : ObjectID('5ead0c1f7c611a2584e11c8a') }, (err, user) => {
+    if (err) return console.log('Unable to fetch!');
+    console.log(user);
+});    
+```
+- Find All documents
+```
+db.collection('users').find({}).toArray((err, users) => {
+    if (err) return console.log('Unable to fetch documents!');
+    console.log(users);
+});   
+```
+- Find All documents with condition. See other cursor options: `.toArray(array)` `.max(int)...` in http://mongodb.github.io/node-mongodb-native/3.5/api/Cursor.html#collation
+```
+db.collection('users').find({ age: 36 }).toArray((err, users) => {
+    if (err) return console.log('Unable to fetch documents!');
+    console.log(users);
+}); 
+```
+- Find All documents being older than 26. 
+```
+db.collection('users').find({}).toArray((err, users) => {
+    if (err) return console.log('Unable to fetch documents!');
+    console.log(users.filter(user => user.age > 26));
+}); 
+```
+- Update one document by ID. See other update operators: `$set: {} $rename: {} $unset: {}...` in https://docs.mongodb.com/manual/reference/operator/update/
+```
+db.collection('users').updateOne({ _id: new ObjectID('5ead0c1f7c611a2584e11c8b') }, {
+    $set: { name: 'Robert' }
+}).then(result => console.log(result)).catch(err => console.log(err));
+```
+- Update many documents by age, by incrementing age in 1
+```
+db.collection('users').updateMany({ age: 26 }, {
+    $inc: { age: 1 }
+}).then(result => console.log(result)).catch(err => console.log(err));
+```
+- Delete one document by ID. Note: `.deletedCount` shows deletion quantity
+```
+db.collection('users').deleteOne({ _id: new ObjectID('5ead0dd4b7d91621d0af29ad') })
+.then(result => console.log(result.deletedCount)).catch(err => console.log(err));
+```
+- Delete many documents by age
+```
+db.collection('users').deleteMany({ age: 27 })
+.then(result => console.log(result.deletedCount)).catch(err => console.log(err));
+```
